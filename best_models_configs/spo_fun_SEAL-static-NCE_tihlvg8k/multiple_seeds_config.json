@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/seal_static_reference/spo_fun_SEAL-static-NCE_tihlvg8k/config.json", "wandb_tags": ["type@random_seeds", "dataset@spo_fun", "model@SEAL-static-NCE", "reference@tihlvg8k"], "sweep_name": "spo_fun_SEAL-static-NCE_tihlvg8k"}

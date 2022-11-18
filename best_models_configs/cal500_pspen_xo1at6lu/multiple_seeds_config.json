@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/cal500_pspen_xo1at6lu/config.json", "wandb_tags": ["dataset@cal500", "model@pspen", "reference@xo1at6lu"], "sweep_name": "cal500_pspen_xo1at6lu"}

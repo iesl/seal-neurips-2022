@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/eurlexev_pdvn_shpjqe4v/config.json", "wandb_tags": ["dataset@eurlexev", "model@pdvn", "reference@shpjqe4v"], "sweep_name": "eurlexev_pdvn_shpjqe4v"}

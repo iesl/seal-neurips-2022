@@ -1,0 +1,6 @@
+mypy
+pytest
+pytest-console-scripts
+hypothesis
+coverage[toml]
+wandb_allennlp

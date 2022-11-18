@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/spo_fun_dvn_1zmnow18.json", "wandb_tags": ["dataset@spo_fun", "model@dvn", "reference@1zmnow18"], "sweep_name": "spo_fun_dvn_1zmnow18"}

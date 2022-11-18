@@ -1,0 +1,29 @@
+command:
+  - ${program}
+  - train_with_wandb
+  - /mnt/nfs/work1/mccallum/scorenn/best_models_configs/bibtex_strat_pnce_09x3792e/config.json
+  - --include-package=seal
+  - --wandb_tags=dataset@bibtex_strat,model@pnce,reference@09x3792e
+  - ${args}
+
+method: grid
+metric:
+  goal: maximize
+  name: validation/best_fixed_f1
+
+name: bibtex_strat_pnce_09x3792e
+
+parameters:
+  pytorch_seed:
+    values:
+      - 2
+      - 123
+      - 234
+      - 579
+      - 9099
+      - 83
+      - 444
+      - 345
+      - 735
+      - 334
+program: allennlp

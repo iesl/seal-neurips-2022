@@ -1,0 +1,31 @@
+command:
+  - ${program}
+  - train_with_wandb
+  - /mnt/nfs/work1/mccallum/scorenn/seal_static_reference/bibtex_strat_SEAL-static-NCE_1hzem03u/config.json
+  - --include-package=seal
+  - --wandb_tags=type@random_seeds,dataset@bibtex_strat,model@SEAL-static-NCE,reference@1hzem03u
+  - ${args}
+
+method: grid
+
+metric:
+  goal: maximize
+  name: validation/best_fixed_f1
+
+name: bibtex_strat_SEAL-static-NCE_1hzem03u
+
+parameters:
+  pytorch_seed:
+    values:
+      - 2
+      - 123
+      - 234
+      - 579
+      - 9099
+      - 83
+      - 444
+      - 345
+      - 735
+      - 334
+
+program: allennlp

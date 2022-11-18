@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/seal_static_reference/genbase_SEAL-static-DVN_nk1osgte/config.json", "wandb_tags": ["type@random_seeds", "dataset@genbase", "model@SEAL-static-DVN", "reference@nk1osgte"], "sweep_name": "genbase_SEAL-static-DVN_nk1osgte"}

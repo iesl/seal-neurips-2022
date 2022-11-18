@@ -1,0 +1,192 @@
+{
+    "dataset_reader": {
+        "type": "arff",
+        "num_labels": 159
+    },
+    "model": {
+        "type": "multi-label-classification-with-infnet",
+        "inference_module": {
+            "type": "multi-label-inference-net-normalized",
+            "cost_augmented_layer": {
+                "type": "multi-label-stacked",
+                "feedforward": {
+                    "activations": [
+                        "softplus",
+                        "linear"
+                    ],
+                    "hidden_dims": 159,
+                    "input_dim": 318,
+                    "num_layers": 2
+                },
+                "normalize_y": true
+            },
+            "log_key": "inference_module",
+            "loss_fn": {
+                "type": "combination-loss",
+                "constituent_losses": [
+                    {
+                        "inference_score_weight": 0.0015246798215253863,
+                        "log_key": "neg_inference",
+                        "normalize_y": true,
+                        "reduction": "none",
+                        "type": "multi-label-inference"
+                    },
+                    {
+                        "log_key": "bce",
+                        "reduction": "none",
+                        "type": "multi-label-bce"
+                    }
+                ],
+                "log_key": "loss",
+                "loss_weights": [
+                    1,
+                    3.8897419406675766
+                ],
+                "reduction": "mean"
+            }
+        },
+        "initializer": {
+            "regexes": [
+                [
+                    ".*_linear_layers.*weight",
+                    {
+                        "nonlinearity": "relu",
+                        "type": "kaiming_uniform"
+                    }
+                ],
+                [
+                    ".*linear_layers.*bias",
+                    {
+                        "type": "zero"
+                    }
+                ]
+            ]
+        },
+        "loss_fn": {
+            "type": "multi-label-margin-based",
+            "log_key": "margin_loss",
+            "oracle_cost_weight": 1,
+            "perceptron_loss_weight": 0.0015246798215253863,
+            "reduction": "mean"
+        },
+        "oracle_value_function": {
+            "type": "manhattan",
+            "differentiable": true
+        },
+        "sampler": {
+            "type": "appending-container",
+            "constituent_samplers": [],
+            "log_key": "sampler"
+        },
+        "score_nn": {
+            "type": "multi-label-classification",
+            "global_score": {
+                "type": "multi-label-feedforward",
+                "feedforward": {
+                    "activations": "softplus",
+                    "hidden_dims": 200,
+                    "input_dim": 159,
+                    "num_layers": 1
+                }
+            },
+            "task_nn": {
+                "type": "multi-label-classification",
+                "feature_network": {
+                    "activations": [
+                        "softplus",
+                        "softplus"
+                    ],
+                    "dropout": [
+                        0.5,
+                        0
+                    ],
+                    "hidden_dims": 400,
+                    "input_dim": 1836,
+                    "num_layers": 2
+                },
+                "label_embeddings": {
+                    "embedding_dim": 400,
+                    "vocab_namespace": "labels"
+                }
+            }
+        },
+        "task_nn": {
+            "type": "multi-label-classification",
+            "feature_network": {
+                "activations": [
+                    "softplus",
+                    "softplus"
+                ],
+                "dropout": [
+                    0.5,
+                    0
+                ],
+                "hidden_dims": 400,
+                "input_dim": 1836,
+                "num_layers": 2
+            },
+            "label_embeddings": {
+                "embedding_dim": 400,
+                "vocab_namespace": "labels"
+            }
+        }
+    },
+    "train_data_path": "data/bibtex_stratified10folds_meka/Bibtex-fold@(1|2|3|4|5|6).arff",
+    "validation_data_path": "data/bibtex_stratified10folds_meka/Bibtex-fold@(7|8).arff",
+    "test_data_path": "data/bibtex_stratified10folds_meka/Bibtex-fold@(9|10).arff",
+    "trainer": {
+        "type": "gradient_descent_minimax",
+        "callbacks": [
+            "track_epoch_callback",
+            "slurm",
+        ],
+        "checkpointer": {
+            "keep_most_recent_by_count": 1
+        },
+        "cuda_device": 0,
+        "grad_norm": {
+            "task_nn": 10
+        },
+        "inner_mode": "task_nn",
+        "learning_rate_schedulers": {
+            "task_nn": {
+                "type": "reduce_on_plateau",
+                "factor": 0.5,
+                "mode": "max",
+                "patience": 5,
+                "verbose": true
+            }
+        },
+        "num_epochs": 300,
+        "num_steps": {
+            "score_nn": 1,
+            "task_nn": 6
+        },
+        "optimizer": {
+            "optimizers": {
+                "score_nn": {
+                    "type": "adamw",
+                    "lr": 6.881847801399458e-05,
+                    "weight_decay": 1e-05
+                },
+                "task_nn": {
+                    "type": "adamw",
+                    "lr": 0.0015940650660886894,
+                    "weight_decay": 1e-05
+                }
+            }
+        },
+        "patience": 20,
+        "validation_metric": "+fixed_f1"
+    },
+    "type": "train_test_log_to_wandb",
+    "data_loader": {
+        "batch_size": 32,
+        "shuffle": true
+    },
+    "evaluate_on_test": true,
+    "validation_dataset_reader": {
+        "type": "arff",
+        "num_labels": 159
+    }
+}

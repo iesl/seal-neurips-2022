@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/cal500_dvn_qff1rlmz.json", "wandb_tags": ["dataset@cal500", "model@dvn", "reference@qff1rlmz"], "sweep_name": "cal500_dvn_qff1rlmz"}

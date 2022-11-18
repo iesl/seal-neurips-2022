@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/spo_fun_dvn-samples_zrk8phej.json", "wandb_tags": ["dataset@spo_fun", "model@dvn-samples", "reference@zrk8phej"], "sweep_name": "spo_fun_dvn-samples_zrk8phej"}

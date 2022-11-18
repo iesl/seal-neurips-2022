@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/expr_fun_ranking_qnqb37n7.json", "wandb_tags": ["dataset@expr_fun", "model@ranking", "reference@qnqb37n7"], "sweep_name": "expr_fun_ranking_qnqb37n7"}

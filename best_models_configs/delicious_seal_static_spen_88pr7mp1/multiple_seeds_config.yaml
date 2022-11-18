@@ -1,0 +1,29 @@
+command:
+  - ${program}
+  - train_with_wandb
+  - /mnt/nfs/work1/mccallum/scorenn/best_models_configs/delicious_seal_static_spen_88pr7mp1/config.json
+  - --include-package=seal
+  - --wandb_tags=dataset@delicious,model@seal,reference@88pr7mp1
+  - ${args}
+
+method: grid
+metric:
+  goal: maximize
+  name: validation/best_fixed_f1
+
+name: delicious_seal_static_spen_88pr7mp1
+
+parameters:
+  pytorch_seed:
+    values:
+      - 2
+      - 123
+      - 234
+      - 579
+      - 9099
+      - 83
+      - 444
+      - 345
+      - 735
+      - 334
+program: allennlp

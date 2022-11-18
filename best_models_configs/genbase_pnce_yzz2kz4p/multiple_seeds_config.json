@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/genbase_pnce_yzz2kz4p/config.json", "wandb_tags": ["dataset@genbase", "model@pnce", "reference@yzz2kz4p"], "sweep_name": "genbase_pnce_yzz2kz4p"}

@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/expr_fun_nce_mzc2tvkm.json", "wandb_tags": ["dataset@expr_fun", "model@nce", "reference@mzc2tvkm"], "sweep_name": "expr_fun_nce_mzc2tvkm"}

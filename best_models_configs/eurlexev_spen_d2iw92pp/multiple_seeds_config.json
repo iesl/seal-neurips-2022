@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/eurlexev_spen_d2iw92pp.json", "wandb_tags": ["dataset@eurlexev", "model@spen", "reference@d2iw92pp"], "sweep_name": "eurlexev_spen_d2iw92pp"}

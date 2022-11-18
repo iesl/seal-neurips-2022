@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/seal_static_reference/cal500_SEAL-static-NCE_8ohed4jd/config.json", "wandb_tags": ["type@random_seeds", "dataset@cal500", "model@SEAL-static-NCE", "reference@8ohed4jd"], "sweep_name": "cal500_SEAL-static-NCE_8ohed4jd"}

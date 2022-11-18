@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/seal_static_reference/bibtex_strat_SEAL-static-DVN_fs95mm5h/config.json", "wandb_tags": ["type@random_seeds", "dataset@bibtex_strat", "model@SEAL-static-DVN", "reference@fs95mm5h"], "sweep_name": "bibtex_strat_SEAL-static-DVN_fs95mm5h"}

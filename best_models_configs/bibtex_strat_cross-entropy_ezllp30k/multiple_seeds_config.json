@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/bibtex_strat_cross-entropy_ezllp30k.json", "wandb_tags": ["dataset@bibtex_strat", "model@cross-entropy", "reference@ezllp30k"], "sweep_name": "bibtex_strat_cross-entropy_ezllp30k"}

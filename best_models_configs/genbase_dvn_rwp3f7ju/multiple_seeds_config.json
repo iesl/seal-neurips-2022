@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/genbase_dvn_rwp3f7ju.json", "wandb_tags": ["dataset@genbase", "model@dvn", "reference@rwp3f7ju"], "sweep_name": "genbase_dvn_rwp3f7ju"}

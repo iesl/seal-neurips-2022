@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/cal500_cross-entropy_ajpj8iie.json", "wandb_tags": ["dataset@cal500", "model@cross-entropy", "reference@ajpj8iie"], "sweep_name": "cal500_cross-entropy_ajpj8iie"}

@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/genbase_cross-entropy_lkrkt0ti.json", "wandb_tags": ["dataset@genbase", "model@cross-entropy", "reference@lkrkt0ti"], "sweep_name": "genbase_cross-entropy_lkrkt0ti"}

@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/expr_fun_dvn_lqj3wdoc.json", "wandb_tags": ["dataset@expr_fun", "model@dvn", "reference@lqj3wdoc"], "sweep_name": "expr_fun_dvn_lqj3wdoc"}

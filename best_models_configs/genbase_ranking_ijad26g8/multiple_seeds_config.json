@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/genbase_ranking_ijad26g8.json", "wandb_tags": ["dataset@genbase", "model@ranking", "reference@ijad26g8"], "sweep_name": "genbase_ranking_ijad26g8"}

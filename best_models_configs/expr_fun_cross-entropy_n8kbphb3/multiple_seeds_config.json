@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/expr_fun_cross-entropy_n8kbphb3.json", "wandb_tags": ["dataset@expr_fun", "model@cross-entropy", "reference@n8kbphb3"], "sweep_name": "expr_fun_cross-entropy_n8kbphb3"}

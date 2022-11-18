@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/seal_static_reference/expr_fun_SEAL-static-DVN_e7a7je0r/config.json", "wandb_tags": ["type@random_seeds", "dataset@expr_fun", "model@SEAL-static-DVN", "reference@e7a7je0r"], "sweep_name": "expr_fun_SEAL-static-DVN_e7a7je0r"}

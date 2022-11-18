@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/bibtex_strat_pnce_09x3792e/config.json", "wandb_tags": ["dataset@bibtex_strat", "model@pnce", "reference@09x3792e"], "sweep_name": "bibtex_strat_pnce_09x3792e"}

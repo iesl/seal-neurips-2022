@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/bibtex_strat_dvn-samples_jxs5gdxn.json", "wandb_tags": ["dataset@bibtex_strat", "model@dvn-samples", "reference@jxs5gdxn"], "sweep_name": "bibtex_strat_dvn-samples_jxs5gdxn"}

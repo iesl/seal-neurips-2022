@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/genbase_dvn-samples_jsuwd9b6.json", "wandb_tags": ["dataset@genbase", "model@dvn-samples", "reference@jsuwd9b6"], "sweep_name": "genbase_dvn-samples_jsuwd9b6"}

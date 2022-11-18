@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/delicious_dvn-samples_sx0h4gus.json", "wandb_tags": ["dataset@delicious", "model@dvn-samples", "reference@sx0h4gus"], "sweep_name": "delicious_dvn-samples_sx0h4gus"}

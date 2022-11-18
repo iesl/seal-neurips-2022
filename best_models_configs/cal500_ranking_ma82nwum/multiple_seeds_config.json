@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/cal500_ranking_ma82nwum.json", "wandb_tags": ["dataset@cal500", "model@ranking", "reference@ma82nwum"], "sweep_name": "cal500_ranking_ma82nwum"}

@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/expr_fun_pnce_7y5cxq7w/config.json", "wandb_tags": ["dataset@expr_fun", "model@pnce", "reference@7y5cxq7w"], "sweep_name": "expr_fun_pnce_7y5cxq7w"}

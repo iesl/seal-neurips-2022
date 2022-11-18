@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/delicious_pnce_k1m2jkkw/config.json", "wandb_tags": ["dataset@delicious", "model@pnce", "reference@k1m2jkkw"], "sweep_name": "delicious_pnce_k1m2jkkw"}

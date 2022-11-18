@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/seal_static_reference/delicious_SEAL-static-DVN_wivot2l7/config.json", "wandb_tags": ["type@random_seeds", "dataset@delicious", "model@SEAL-static-DVN", "reference@wivot2l7"], "sweep_name": "delicious_SEAL-static-DVN_wivot2l7"}

@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/bibtex_strat_pdvn_zrweq15h/config.json", "wandb_tags": ["dataset@bibtex_strat", "model@pdvn", "reference@zrweq15h"], "sweep_name": "bibtex_strat_pdvn_zrweq15h"}

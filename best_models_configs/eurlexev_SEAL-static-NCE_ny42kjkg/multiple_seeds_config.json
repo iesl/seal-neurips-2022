@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/seal_static_reference/eurlexev_SEAL-static-NCE_ny42kjkg/config.json", "wandb_tags": ["type@random_seeds", "dataset@eurlexev", "model@SEAL-static-NCE", "reference@ny42kjkg"], "sweep_name": "eurlexev_SEAL-static-NCE_ny42kjkg"}

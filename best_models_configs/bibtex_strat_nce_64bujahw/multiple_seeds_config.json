@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/bibtex_strat_nce_64bujahw.json", "wandb_tags": ["dataset@bibtex_strat", "model@nce", "reference@64bujahw"], "sweep_name": "bibtex_strat_nce_64bujahw"}

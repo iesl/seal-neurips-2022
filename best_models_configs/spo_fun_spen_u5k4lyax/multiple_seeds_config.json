@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/spo_fun_spen_u5k4lyax.json", "wandb_tags": ["dataset@spo_fun", "model@spen", "reference@u5k4lyax"], "sweep_name": "spo_fun_spen_u5k4lyax"}

@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/spo_fun_pdvn_j4xer5uy/config.json", "wandb_tags": ["dataset@spo_fun", "model@pdvn", "reference@j4xer5uy"], "sweep_name": "spo_fun_pdvn_j4xer5uy"}

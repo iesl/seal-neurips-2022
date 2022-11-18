@@ -1,0 +1,29 @@
+command:
+  - ${program}
+  - train_with_wandb
+  - /mnt/nfs/work1/mccallum/scorenn/best_models_configs/genbase_nce_p84kthyl.json
+  - --include-package=seal
+  - --wandb_tags=dataset@genbase,model@nce,reference@p84kthyl
+  - ${args}
+
+method: grid
+metric:
+  goal: maximize
+  name: validation/best_fixed_f1
+
+name: genbase_nce_p84kthyl
+
+parameters:
+  pytorch_seed:
+    values:
+      - 2
+      - 123
+      - 234
+      - 579
+      - 9099
+      - 83
+      - 444
+      - 345
+      - 735
+      - 334
+program: allennlp

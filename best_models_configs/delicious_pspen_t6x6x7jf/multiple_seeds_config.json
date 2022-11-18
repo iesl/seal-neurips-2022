@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/delicious_pspen_t6x6x7jf/config.json", "wandb_tags": ["dataset@delicious", "model@pspen", "reference@t6x6x7jf"], "sweep_name": "delicious_pspen_t6x6x7jf"}

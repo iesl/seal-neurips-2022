@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/genbase_pspen_c7fd468l/config.json", "wandb_tags": ["dataset@genbase", "model@pspen", "reference@c7fd468l"], "sweep_name": "genbase_pspen_c7fd468l"}

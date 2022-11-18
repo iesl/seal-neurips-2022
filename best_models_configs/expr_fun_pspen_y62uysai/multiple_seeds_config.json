@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/expr_fun_pspen_y62uysai/config.json", "wandb_tags": ["dataset@expr_fun", "model@pspen", "reference@y62uysai"], "sweep_name": "expr_fun_pspen_y62uysai"}

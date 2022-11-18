@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/delicious_cross-entropy_on1xrsr2.json", "wandb_tags": ["dataset@delicious", "model@cross-entropy", "reference@on1xrsr2"], "sweep_name": "delicious_cross-entropy_on1xrsr2"}

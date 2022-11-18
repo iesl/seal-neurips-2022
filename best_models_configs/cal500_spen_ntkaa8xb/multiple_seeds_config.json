@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/cal500_spen_ntkaa8xb.json", "wandb_tags": ["dataset@cal500", "model@spen", "reference@ntkaa8xb"], "sweep_name": "cal500_spen_ntkaa8xb"}

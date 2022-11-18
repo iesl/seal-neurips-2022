@@ -1,0 +1,75 @@
+name: Changelog Generator
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  generate_changelog_file:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.GH_TOKEN }}
+
+    - name: Generate changelog
+      uses: heinrichreimer/github-changelog-generator-action@v2.2
+      with:
+        token: ${{ secrets.GH_TOKEN }}
+        author: true
+        unreleased: true
+        unreleasedLabel: "🚧Unreleased"
+        issues: true
+        pullRequests: true
+        prWoLabels: false
+        compareLink: true
+        output: CHANGELOG.md
+        breakingLabel: "### 💥 Breaking Changes:"
+        breakingLabels: "breaking"
+        deprecatedLabel: "### 👋 Depricated"
+        deprecatedLabels: "deprecation"
+        enhancementLabel: "### ✨ Features and Enhancements:"
+        enhancementLabels: "enhancement"
+        bugsLabel: "### 🐛 Bug Fixes:"
+        bugLabels: "bug,bug-fix,fix,fixes"
+        removedLabel: '### 🗑️ Removals:'
+        removedLabels: 'removal'
+        addSections: >-
+                {
+                        "documentation": {
+                                "prefix":"### 📖 Documentation updates",
+                                "labels":["documentation"]
+                        },
+                        "style": {
+                                "prefix":"### 💄 Style",
+                                "labels":["style"]
+                        },
+                        "dependencies": {
+                                "prefix":"### 📦 Dependencies",
+                                "labels":["dependencies"]
+                        },
+                        "refactoring": {
+                                "prefix":"### 🔨 Refactoring",
+                                "labels":["refactoring"]
+                        },
+                        "ci":{
+                                "prefix":"### 👷 Build and CI",
+                                "labels":["ci", "build"]
+                        },
+                        "configs":{
+                                "prefix":"### ⚙️  Model and sweep configs",
+                                "labels":["configs", "config"]
+                        },
+                        "utils":{
+                                "prefix":"### 🧪 Peripheral utilities",
+                                "labels":["utils", "utilities"]
+                        }
+                }
+        # See: emojipedia.org for emoji codes
+    - name: Commit CHANGELOG.md
+      uses: EndBug/add-and-commit@v7 # You can change this to use a specific version
+      if: success()
+      with:
+        add: 'CHANGELOG.md'

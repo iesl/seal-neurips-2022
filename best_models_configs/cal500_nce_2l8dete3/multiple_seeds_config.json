@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/cal500_nce_2l8dete3.json", "wandb_tags": ["dataset@cal500", "model@nce", "reference@2l8dete3"], "sweep_name": "cal500_nce_2l8dete3"}

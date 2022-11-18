@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/bibtex_strat_ranking_d1srvj9s.json", "wandb_tags": ["dataset@bibtex_strat", "model@ranking", "reference@d1srvj9s"], "sweep_name": "bibtex_strat_ranking_d1srvj9s"}

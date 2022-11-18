@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/eurlexev_pnce_xk4u9lhz/config.json", "wandb_tags": ["dataset@eurlexev", "model@pnce", "reference@xk4u9lhz"], "sweep_name": "eurlexev_pnce_xk4u9lhz"}

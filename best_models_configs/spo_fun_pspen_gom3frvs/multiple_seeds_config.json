@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/spo_fun_pspen_gom3frvs/config.json", "wandb_tags": ["dataset@spo_fun", "model@pspen", "reference@gom3frvs"], "sweep_name": "spo_fun_pspen_gom3frvs"}

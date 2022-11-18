@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/eurlexev_cross-entropy_j7k35txv.json", "wandb_tags": ["dataset@eurlexev", "model@cross-entropy", "reference@j7k35txv"], "sweep_name": "eurlexev_cross-entropy_j7k35txv"}

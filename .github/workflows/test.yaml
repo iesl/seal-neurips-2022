@@ -1,0 +1,46 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Tests
+
+on:
+  push:
+    branches: [ main, dev/main ]
+    paths-ignore: ['docs/**', 'CHANGELOG.md'] # don't run when only docs are changed
+  pull_request:
+    branches: [ main, dev/main ]
+    paths-ignore: ['docs/**', 'CHANGELOG.md']
+
+jobs:
+  tests:
+    name: ${{ matrix.session }}-python-${{ matrix.python-version }}-os-${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        python-version: ['3.8']
+        os: ['macos-latest']
+      fail-fast: true
+    env:
+      NOXSESSION: ${{ matrix.session }}
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v2.3.4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2.2.2
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install nox
+      run: |
+        pip install nox
+
+    - name: Download data
+      run: |
+        chmod +x download_datasets.sh
+        sh download_datasets.sh
+
+    - name: Run tests
+      run: |
+        nox --session=tests -- -x -v

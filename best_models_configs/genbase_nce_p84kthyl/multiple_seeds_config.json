@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/genbase_nce_p84kthyl.json", "wandb_tags": ["dataset@genbase", "model@nce", "reference@p84kthyl"], "sweep_name": "genbase_nce_p84kthyl"}

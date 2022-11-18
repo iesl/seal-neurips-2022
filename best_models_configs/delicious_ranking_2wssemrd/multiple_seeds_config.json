@@ -1,0 +1,1 @@
+{"config_file": "/mnt/nfs/work1/mccallum/scorenn/best_models_configs/delicious_ranking_2wssemrd.json", "wandb_tags": ["dataset@delicious", "model@ranking", "reference@2wssemrd"], "sweep_name": "delicious_ranking_2wssemrd"}
