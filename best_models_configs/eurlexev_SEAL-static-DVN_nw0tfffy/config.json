@@ -129,17 +129,6 @@
         "callbacks": [
             "track_epoch_callback",
             "slurm",
-            {
-                "save_model_archive": false,
-                "sub_callbacks": [
-                    {
-                        "priority": 100,
-                        "type": "log_best_validation_metrics"
-                    }
-                ],
-                "type": "wandb_allennlp",
-                "watch_model": false
-            }
         ],
         "checkpointer": {
             "keep_most_recent_by_count": 1
