@@ -1,6 +1,6 @@
 {
     "dataset_reader": {
-        "type": "aapd",
+        "type": "bgc",
         "token_indexers": {
             "x": {
                 "type": "pretrained_transformer",
@@ -19,25 +19,8 @@
             "type": "multi-label-basic",
             "log_key": "inference_module",
             "loss_fn": {
-                "type": "combination-loss",
-                "constituent_losses": [
-                    {
-                        "log_key": "neg_nce_score",
-                        "normalize_y": true,
-                        "reduction": "none",
-                        "type": "multi-label-score-loss"
-                    },
-                    {
-                        "log_key": "bce",
-                        "reduction": "none",
-                        "type": "multi-label-bce"
-                    }
-                ],
-                "log_key": "loss",
-                "loss_weights": [
-                    1,
-                    1
-                ],
+                "type": "multi-label-bce",
+                "log_key": "bce",
                 "reduction": "mean"
             }
         },
@@ -59,10 +42,7 @@
             ]
         },
         "loss_fn": {
-            "type": "multi-label-nce-ranking-with-discrete-sampling",
-            "log_key": "nce",
-            "num_samples": 300,
-            "sign": "-"
+            "type": "zero"
         },
         "oracle_value_function": {
             "type": "per-instance-f1",
@@ -73,56 +53,7 @@
             "constituent_samplers": [],
             "log_key": "sampler"
         },
-        "score_nn": {
-            "type": "multi-label-classification",
-            "global_score": {
-                "type": "multi-label-feedforward",
-                "feedforward": {
-                    "activations": "softplus",
-                    "hidden_dims": 600,
-                    "input_dim": 54,
-                    "num_layers": 1
-                }
-            },
-            "task_nn": {
-                "type": "multi-label-text-classification",
-                "feature_network": {
-                    "feedforward": {
-                        "activations": [
-                            "softplus",
-                            "softplus"
-                        ],
-                        "dropout": [
-                            0.1,
-                            0
-                        ],
-                        "hidden_dims": [
-                            1536,
-                            768
-                        ],
-                        "input_dim": 768,
-                        "num_layers": 2
-                    },
-                    "final_dropout": 0,
-                    "seq2vec_encoder": {
-                        "type": "bert_pooler",
-                        "pretrained_model": "bert-base-uncased"
-                    },
-                    "text_field_embedder": {
-                        "token_embedders": {
-                            "x": {
-                                "type": "pretrained_transformer_with_adapter",
-                                "model_name": "bert-base-uncased"
-                            }
-                        }
-                    }
-                },
-                "label_embeddings": {
-                    "embedding_dim": 768,
-                    "vocab_namespace": "labels"
-                }
-            }
-        },
+        "score_nn": null,
         "task_nn": {
             "type": "multi-label-text-classification",
             "feature_network": {
@@ -132,14 +63,17 @@
                         "softplus"
                     ],
                     "dropout": [
-                        0.3,
+                        0.1,
                         0
                     ],
-                    "hidden_dims": 1024,
+                    "hidden_dims": [
+                        1536,
+                        768
+                    ],
                     "input_dim": 768,
                     "num_layers": 2
                 },
-                "final_dropout": 0.3,
+                "final_dropout": 0,
                 "seq2vec_encoder": {
                     "type": "bert_pooler",
                     "pretrained_model": "bert-base-uncased"
@@ -147,21 +81,21 @@
                 "text_field_embedder": {
                     "token_embedders": {
                         "x": {
-                            "type": "pretrained_transformer",
+                            "type": "pretrained_transformer_with_adapter",
                             "model_name": "bert-base-uncased"
                         }
                     }
                 }
             },
             "label_embeddings": {
-                "embedding_dim": 1024,
+                "embedding_dim": 768,
                 "vocab_namespace": "labels"
             }
         }
     },
-    "train_data_path": "./data//AAPD/aapd_train.jsonl",
-    "validation_data_path": "./data//AAPD/aapd_validation.jsonl",
-    "test_data_path": "./data//AAPD/aapd_test.jsonl",
+    "train_data_path": "data/bgc/train.jsonl",
+    "validation_data_path": "data/bgc/dev.jsonl",
+    "test_data_path": "data/bgc/test.jsonl",
     "trainer": {
         "type": "gradient_descent_minimax",
         "callbacks": [
@@ -173,7 +107,6 @@
         },
         "cuda_device": 0,
         "grad_norm": {
-            "score_nn": 1,
             "task_nn": 1
         },
         "inner_mode": "score_nn",
@@ -193,15 +126,10 @@
         },
         "optimizer": {
             "optimizers": {
-                "score_nn": {
-                    "type": "huggingface_adamw",
-                    "lr": 0.0001,
-                    "weight_decay": 0.0001
-                },
                 "task_nn": {
                     "type": "huggingface_adamw",
-                    "lr": 1e-05,
-                    "weight_decay": 0.0001
+                    "lr": 0.0001,
+                    "weight_decay": 0.1
                 }
             }
         },
@@ -210,20 +138,14 @@
     },
     "vocabulary": {
         "type": "from_files",
-        "directory": "./data/AAPD/bert_vocab"
+        "directory": "data/bgc/bert_vocab"
     },
     "type": "train_test_log_to_wandb",
     "data_loader": {
         "batch_sampler": {
             "type": "bucket",
-            "batch_size": 16,
-            "sorting_keys": [
-                "x"
-            ]
-        },
-        "max_instances_in_memory": 1000,
-        "num_workers": 5,
-        "start_method": "spawn"
+            "batch_size": 16
+        }
     },
     "evaluate_on_test": true
 }

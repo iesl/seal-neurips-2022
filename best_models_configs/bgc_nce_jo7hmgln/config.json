@@ -1,6 +1,6 @@
 {
     "dataset_reader": {
-        "type": "aapd",
+        "type": "bgc",
         "token_indexers": {
             "x": {
                 "type": "pretrained_transformer",
@@ -35,7 +35,7 @@
                 ],
                 "log_key": "loss",
                 "loss_weights": [
-                    1,
+                    3,
                     1
                 ],
                 "reduction": "mean"
@@ -61,7 +61,7 @@
         "loss_fn": {
             "type": "multi-label-nce-ranking-with-discrete-sampling",
             "log_key": "nce",
-            "num_samples": 300,
+            "num_samples": 200,
             "sign": "-"
         },
         "oracle_value_function": {
@@ -79,8 +79,8 @@
                 "type": "multi-label-feedforward",
                 "feedforward": {
                     "activations": "softplus",
-                    "hidden_dims": 600,
-                    "input_dim": 54,
+                    "hidden_dims": 300,
+                    "input_dim": 146,
                     "num_layers": 1
                 }
             },
@@ -132,14 +132,17 @@
                         "softplus"
                     ],
                     "dropout": [
-                        0.3,
+                        0.1,
                         0
                     ],
-                    "hidden_dims": 1024,
+                    "hidden_dims": [
+                        1536,
+                        768
+                    ],
                     "input_dim": 768,
                     "num_layers": 2
                 },
-                "final_dropout": 0.3,
+                "final_dropout": 0,
                 "seq2vec_encoder": {
                     "type": "bert_pooler",
                     "pretrained_model": "bert-base-uncased"
@@ -147,21 +150,21 @@
                 "text_field_embedder": {
                     "token_embedders": {
                         "x": {
-                            "type": "pretrained_transformer",
+                            "type": "pretrained_transformer_with_adapter",
                             "model_name": "bert-base-uncased"
                         }
                     }
                 }
             },
             "label_embeddings": {
-                "embedding_dim": 1024,
+                "embedding_dim": 768,
                 "vocab_namespace": "labels"
             }
         }
     },
-    "train_data_path": "./data//AAPD/aapd_train.jsonl",
-    "validation_data_path": "./data//AAPD/aapd_validation.jsonl",
-    "test_data_path": "./data//AAPD/aapd_test.jsonl",
+    "train_data_path": "data/bgc/train.jsonl",
+    "validation_data_path": "data/bgc/dev.jsonl",
+    "test_data_path": "data/bgc/test.jsonl",
     "trainer": {
         "type": "gradient_descent_minimax",
         "callbacks": [
@@ -196,12 +199,12 @@
                 "score_nn": {
                     "type": "huggingface_adamw",
                     "lr": 0.0001,
-                    "weight_decay": 0.0001
+                    "weight_decay": 0.1
                 },
                 "task_nn": {
                     "type": "huggingface_adamw",
-                    "lr": 1e-05,
-                    "weight_decay": 0.0001
+                    "lr": 0.0001,
+                    "weight_decay": 0.1
                 }
             }
         },
@@ -210,7 +213,7 @@
     },
     "vocabulary": {
         "type": "from_files",
-        "directory": "./data/AAPD/bert_vocab"
+        "directory": "data/bgc/bert_vocab"
     },
     "type": "train_test_log_to_wandb",
     "data_loader": {
