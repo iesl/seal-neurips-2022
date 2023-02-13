@@ -1,0 +1,143 @@
+{
+    "dataset_reader": {
+        "type": "aapd",
+        "token_indexers": {
+            "x": {
+                "type": "pretrained_transformer",
+                "model_name": "bert-base-uncased"
+            }
+        },
+        "tokenizer": {
+            "type": "pretrained_transformer",
+            "max_length": 512,
+            "model_name": "bert-base-uncased"
+        }
+    },
+    "model": {
+        "type": "multi-label-classification-with-infnet",
+        "inference_module": {
+            "type": "multi-label-basic",
+            "log_key": "inference_module",
+            "loss_fn": {
+                "type": "multi-label-bce",
+                "log_key": "bce",
+                "reduction": "mean"
+            }
+        },
+        "initializer": {
+            "regexes": [
+                [
+                    ".*feedforward._linear_layers.*weight",
+                    {
+                        "nonlinearity": "relu",
+                        "type": "kaiming_uniform"
+                    }
+                ],
+                [
+                    ".*feedforward._linear_layers.*bias",
+                    {
+                        "type": "zero"
+                    }
+                ]
+            ]
+        },
+        "loss_fn": {
+            "type": "zero"
+        },
+        "oracle_value_function": {
+            "type": "per-instance-f1",
+            "differentiable": false
+        },
+        "sampler": {
+            "type": "appending-container",
+            "constituent_samplers": [],
+            "log_key": "sampler"
+        },
+        "score_nn": null,
+        "task_nn": {
+            "type": "multi-label-text-classification",
+            "feature_network": {
+                "feedforward": {
+                    "activations": [
+                        "softplus"
+                    ],
+                    "dropout": [
+                        0
+                    ],
+                    "hidden_dims": 1024,
+                    "input_dim": 768,
+                    "num_layers": 1
+                },
+                "final_dropout": 0.1,
+                "seq2vec_encoder": {
+                    "type": "bert_pooler",
+                    "pretrained_model": "bert-base-uncased"
+                },
+                "text_field_embedder": {
+                    "token_embedders": {
+                        "x": {
+                            "type": "pretrained_transformer",
+                            "model_name": "bert-base-uncased"
+                        }
+                    }
+                }
+            },
+            "label_embeddings": {
+                "embedding_dim": 1024,
+                "vocab_namespace": "labels"
+            }
+        }
+    },
+    "train_data_path": "./data//AAPD/aapd_train.jsonl",
+    "validation_data_path": "./data//AAPD/aapd_validation.jsonl",
+    "test_data_path": "./data//AAPD/aapd_test.jsonl",
+    "trainer": {
+        "type": "gradient_descent_minimax",
+        "callbacks": [
+            "track_epoch_callback",
+            "slurm"
+        ],
+        "checkpointer": {
+            "keep_most_recent_by_count": 1
+        },
+        "cuda_device": 0,
+        "grad_norm": {
+            "task_nn": 1
+        },
+        "inner_mode": "score_nn",
+        "learning_rate_schedulers": {
+            "task_nn": {
+                "type": "reduce_on_plateau",
+                "factor": 0.5,
+                "mode": "max",
+                "patience": 2,
+                "verbose": true
+            }
+        },
+        "num_epochs": 300,
+        "num_gradient_accumulation_steps": 16,
+        "num_steps": {
+            "score_nn": 1,
+            "task_nn": 1
+        },
+        "optimizer": {
+            "optimizers": {
+                "task_nn": {
+                    "type": "huggingface_adamw",
+                    "lr": 1e-05,
+                    "weight_decay": 0.1
+                }
+            }
+        },
+        "patience": 5,
+        "validation_metric": "+fixed_f1"
+    },
+    "type": "train_test_log_to_wandb",
+    "data_loader": {
+        "batch_sampler": {
+            "type": "bucket",
+            "batch_size": 2
+        }
+    },
+    "evaluate_on_test": true
+}
